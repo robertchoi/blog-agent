@@ -1,0 +1,63 @@
+# Blog Agent: 네이버 블로그 멀티에이전트 자동 생성기
+
+## 소개
+Blog Agent는 LangGraph, LangChain, OpenAI, Streamlit 등 최신 AI/LLM 프레임워크를 활용하여 네이버 블로그 포스트를 자동으로 생성하는 멀티에이전트 파이프라인 프로젝트입니다. 
+
+- **주요 기능**
+  - 웹 검색 및 콘텐츠 스크래핑
+  - SEO 분석 및 최적화 태그 추천
+  - 블로그 초안 자동 작성 (마크다운)
+  - DALL-E 기반 대표 이미지 프롬프트 생성 및 이미지 생성
+  - 전체 파이프라인을 Streamlit UI로 손쉽게 실행
+
+## 폴더 구조
+
+```
+blog-agent/
+├── main.py
+├── pyproject.toml
+├── README.md
+├── .env
+├── .gitignore
+├── .python-version
+├── uv.lock
+```
+- `main.py` : 전체 멀티에이전트 파이프라인 및 Streamlit UI
+- `.env` : API 키 환경변수 파일
+- `pyproject.toml` : 프로젝트 의존성 명세
+
+
+## 에이전트 구성
+- **Researcher**: 주제 관련 웹 검색 및 자료 수집
+- **SEO Specialist**: 최신 네이버 SEO 트렌드 분석 및 태그 추천
+- **Writer**: SEO 분석 결과를 바탕으로 블로그 초안 작성
+- **Art Director**: 블로그 제목/내용 기반 대표 이미지 프롬프트 및 이미지 생성
+
+## 사용법
+1. `.env` 파일에 아래와 같이 API 키를 입력합니다.
+   ```env
+   OPENAI_API_KEY=sk-...
+   TAVILY_API_KEY=tvly-...
+   # (필요시) LANGCHAIN_API_KEY=...
+   ```
+2. 의존성 설치 (uv 사용 권장)
+   ```bash
+   uv sync
+   ```
+3. Streamlit 앱 실행
+   ```bash
+   uv run streamlit run main.py
+   ```
+
+
+## 참고
+- LangGraph: https://github.com/langchain-ai/langgraph
+- LangChain: https://github.com/langchain-ai/langchain
+- Tavily: https://python.langchain.com/docs/integrations/tools/tavily_search
+- DALL-E: https://platform.openai.com/docs/guides/images
+
+---
+
+본 프로젝트는 '모두의 연구소' AI 에이전트랩의 에 관심 있는 분들을 위한 예제/데모 목적입니다.
+https://modulabs.co.kr/community/momos/284
+
